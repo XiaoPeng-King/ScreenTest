@@ -24,6 +24,12 @@
 
 运行后顶部可选择「测试目标显示器」，再进入对应标签页开始测试。
 
+## 下载 EXE（推荐）
+
+前往 [Releases](https://github.com/XiaoPeng-King/ScreenTest/releases) 下载 **ScreenTest.exe**，双击即可运行（无需安装 Python）。
+
+当前版本：[v1.2.5](https://github.com/XiaoPeng-King/ScreenTest/releases/tag/v1.2.5)
+
 ## 运行（源码）
 
 ```bash
