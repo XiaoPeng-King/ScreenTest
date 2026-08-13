@@ -73,7 +73,6 @@ enum MonitorService {
     }
 }
 
-@MainActor
 final class IdentifyOverlayController {
     private var windows: [NSWindow] = []
     private var hideWork: DispatchWorkItem?
