@@ -215,6 +215,14 @@ struct MonitorInfo: Identifiable, Hashable {
     let name: String
     let refreshHz: Int
 
+    static func == (lhs: MonitorInfo, rhs: MonitorInfo) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
     var scalePercent: Int { Int((scale * 100).rounded()) }
 
     var label: String {
