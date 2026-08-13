@@ -37,9 +37,7 @@ final class AppModel {
             object: nil,
             queue: .main
         ) { [weak self] _ in
-            Task { @MainActor in
-                self?.refreshMonitors()
-            }
+            self?.refreshMonitors()
         }
     }
 
