@@ -7,10 +7,15 @@ __pycache__/
 venv/
 .env
 
-# PyInstaller
+# PyInstaller / Xcode
 build/
 dist/
 *.spec
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.dSYM
+*.dSYM.zip
 
 # IDE / OS
 .idea/

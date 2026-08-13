@@ -1,12 +1,12 @@
 # ScreenTest Desktop
 
-本地桌面版屏幕测试工具（Windows），支持坏点检测、纯色/灰度、几何图案、屏保特效与纯色图片导出，并支持多显示器选择（含外接屏）。
+本地桌面版屏幕测试工具，支持坏点检测、纯色/灰度、几何图案、屏保特效与纯色图片导出，并支持多显示器选择（含外接屏）。
 
 > 个人网站：[xiaopengking.site](https://www.xiaopengking.site)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-green.svg)](https://www.python.org/)
-[![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)](#)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS-lightgrey.svg)](#)
 
 ## 功能
 
@@ -24,13 +24,15 @@
 
 运行后顶部可选择「测试目标显示器」，再进入对应标签页开始测试。
 
-## 下载 EXE（推荐）
+## Windows
+
+### 下载 EXE（推荐）
 
 前往 [Releases](https://github.com/XiaoPeng-King/ScreenTest/releases) 下载 **ScreenTest.exe**，双击即可运行（无需安装 Python）。
 
 当前版本：[v1.2.5](https://github.com/XiaoPeng-King/ScreenTest/releases/tag/v1.2.5)
 
-## 运行（源码）
+### 运行（源码）
 
 ```bash
 # 依赖
@@ -46,7 +48,7 @@ python screentest.py
 - Python 3.10+
 - 依赖：`pillow`
 
-## 打包为 EXE
+### 打包为 EXE
 
 ```bash
 pip install -r requirements.txt
@@ -61,6 +63,20 @@ pyinstaller --noconfirm --onefile --windowed --name ScreenTest screentest.py
 
 生成文件：`dist/ScreenTest.exe`（可直接分发，目标机器无需安装 Python）。
 
+## macOS
+
+原生 Swift 版在 [`macos/`](macos/) 目录。
+
+系统要求：macOS 14+。
+
+```bash
+cd macos
+./build.sh
+open dist/ScreenTest.app
+```
+
+也可用 Xcode 打开 `macos/ScreenTest.xcodeproj`。详见 [macos/README.md](macos/README.md)。
+
 ## 全屏快捷键
 
 | 按键 | 功能 |
@@ -74,9 +90,13 @@ pyinstaller --noconfirm --onefile --windowed --name ScreenTest screentest.py
 
 ```
 ScreenTest/
-├── screentest.py      # 主程序
-├── requirements.txt   # 依赖
-├── build.bat          # 一键打包脚本
+├── screentest.py      # Windows 主程序
+├── requirements.txt   # Windows 依赖
+├── build.bat          # Windows 一键打包
+├── macos/             # macOS 原生版
+│   ├── ScreenTest/
+│   ├── ScreenTest.xcodeproj
+│   └── build.sh
 ├── LICENSE            # MIT
 └── README.md
 ```
