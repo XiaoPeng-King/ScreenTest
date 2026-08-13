@@ -1,7 +1,6 @@
 import AppKit
 import SwiftUI
 
-@MainActor
 @Observable
 final class AppModel {
     var monitors: [MonitorInfo] = []
