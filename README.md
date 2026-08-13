@@ -24,15 +24,20 @@
 
 运行后顶部可选择「测试目标显示器」，再进入对应标签页开始测试。
 
-## Windows
+## 下载（推荐）
 
-### 下载 EXE（推荐）
+前往 [Releases](https://github.com/XiaoPeng-King/ScreenTest/releases/tag/v1.2.5) 下载对应系统的安装包，无需安装开发环境。
 
-前往 [Releases](https://github.com/XiaoPeng-King/ScreenTest/releases) 下载 **ScreenTest.exe**，双击即可运行（无需安装 Python）。
+| 系统 | 文件 | 说明 |
+|------|------|------|
+| Windows 10 / 11 | [**ScreenTest.exe**](https://github.com/XiaoPeng-King/ScreenTest/releases/download/v1.2.5/ScreenTest.exe) | 双击运行 |
+| macOS 14+ | [**ScreenTest-macOS.zip**](https://github.com/XiaoPeng-King/ScreenTest/releases/download/v1.2.5/ScreenTest-macOS.zip) | 解压后打开 `ScreenTest.app` |
 
 当前版本：[v1.2.5](https://github.com/XiaoPeng-King/ScreenTest/releases/tag/v1.2.5)
 
-### 运行（源码）
+macOS 首次打开：按住 **Control** 点击 `ScreenTest.app` → 选择「打开」。
+
+## Windows 源码运行
 
 ```bash
 # 依赖
@@ -63,11 +68,9 @@ pyinstaller --noconfirm --onefile --windowed --name ScreenTest screentest.py
 
 生成文件：`dist/ScreenTest.exe`（可直接分发，目标机器无需安装 Python）。
 
-## macOS
+## macOS 源码运行
 
-原生 Swift 版在 [`macos/`](macos/) 目录。
-
-系统要求：macOS 14+。
+原生 Swift 版在 [`macos/`](macos/) 目录。系统要求：macOS 14+。
 
 ```bash
 cd macos
