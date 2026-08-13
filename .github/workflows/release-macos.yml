@@ -1,0 +1,62 @@
+name: Release macOS
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag to attach the macOS app
+        required: true
+        default: v1.2.5
+
+permissions:
+  contents: write
+
+jobs:
+  build-macos:
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build ScreenTest.app
+        working-directory: macos
+        run: |
+          chmod +x build.sh scripts/make_icon.py
+          ./build.sh
+
+      - name: Package zip
+        run: |
+          ditto -c -k --keepParent macos/dist/ScreenTest.app ScreenTest-macOS.zip
+          ls -lh ScreenTest-macOS.zip
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag }}
+          name: ScreenTest ${{ inputs.tag }}
+          files: ScreenTest-macOS.zip
+          fail_on_unmatched_files: true
+          body: |
+            ## ScreenTest Desktop ${{ inputs.tag }}
+
+            屏幕测试工具可执行文件，双击即可使用。
+
+            ### 下载
+            - **Windows**：`ScreenTest.exe` — 双击运行，无需安装 Python
+            - **macOS**：`ScreenTest-macOS.zip` — 解压后打开 `ScreenTest.app`
+
+            ### macOS 使用
+            1. 下载 `ScreenTest-macOS.zip` 并解压
+            2. 将 `ScreenTest.app` 拖到「应用程序」或任意目录
+            3. 首次打开：按住 **Control** 点击图标 → 选择「打开」（未公证的本地签名）
+            4. 顶部选择要测试的显示器，按 **Esc** 退出全屏
+
+            ### 功能
+            - 坏点/亮点检测
+            - 纯色 / 灰度测试
+            - 图案测试（细线、渐变、彩条等）
+            - 屏保特效
+            - 多显示器支持（外接屏，可跨屏操作）
+            - 纯色图片导出
+
+            源码：https://github.com/XiaoPeng-King/ScreenTest
