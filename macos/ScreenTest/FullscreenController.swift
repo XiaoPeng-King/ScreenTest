@@ -22,7 +22,6 @@ final class OverlayWindow: NSWindow {
     }
 }
 
-@MainActor
 final class FullscreenController {
     private var window: OverlayWindow?
     private var host: TestHostView?
